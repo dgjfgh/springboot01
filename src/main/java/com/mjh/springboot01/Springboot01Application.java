@@ -11,7 +11,6 @@ public class Springboot01Application extends SpringBootServletInitializer implem
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
-
 		return application.sources(Springboot01Application.class);
 	}
 
