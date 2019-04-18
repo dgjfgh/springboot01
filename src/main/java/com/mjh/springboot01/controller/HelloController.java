@@ -27,7 +27,7 @@ public class HelloController extends BaseController{
     //连接数据库
     @RequestMapping("/getUsers")
     public List<Map<String, Object>> getUsers(){
-        String sql = "select * from t_user";
+        String sql = "select * from tab_user";
         List<Map<String, Object>> list =  jdbcTemplate.queryForList(sql);
         for (Map<String, Object> map : list) {
             Set<Map.Entry<String, Object>> entries = map.entrySet( );
