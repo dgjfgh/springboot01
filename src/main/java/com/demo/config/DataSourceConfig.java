@@ -7,6 +7,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -29,7 +31,7 @@ public class DataSourceConfig {
     private String password;
 
     @Bean
-    public DataSource logMethod() {
+    public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName);
         dataSource.setUrl(url);
@@ -37,5 +39,11 @@ public class DataSourceConfig {
         dataSource.setPassword(password);
         return dataSource;
     }
+
+    //事务管理器
+//    @Bean
+//    public PlatformTransactionManager platformTransactionManager() throws Exception {
+//        return new DataSourceTransactionManager(dataSource());
+//    }
 
 }
