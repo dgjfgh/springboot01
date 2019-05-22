@@ -1,4 +1,4 @@
-package com.neo.model;
+package com.demo.bean;
 
 import java.io.Serializable;
 
