@@ -13,37 +13,42 @@ import com.demo.dao.UserDao;
 
 @RestController
 public class UserController extends BaseController {
-	
-	@Autowired
-	private UserDao userDao;
 
-	@RequestMapping("/getUsers")
-	public List<User> getUsers() {
-        System.out.println(    request.getParameter("name"));
-		List<User> users= userDao.getAll();
-		return users;
-	}
-	
+    @Autowired
+    private UserDao userDao;
+
+    @RequestMapping("/getUsers")
+    public List<User> getUsers() {
+        try {
+            System.out.println(request.getParameter("name"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        List<User> users = userDao.getAll();
+        return users;
+    }
+
     @RequestMapping("/getUser")
     public User getUser(Long id) {
-    	User user= userDao.getOne(id);
+        User user = userDao.getOne(id);
         return user;
     }
-    
+
     @RequestMapping("/add")
     public void save(User user) {
-    	userDao.insert(user);
+        userDao.insert(user);
     }
-    
-    @RequestMapping(value="update")
+
+    @RequestMapping(value = "update")
     public void update(User user) {
-    	userDao.update(user);
+        int update = userDao.update(user);
+        System.out.println(update);
     }
-    
-    @RequestMapping(value="/delete/{id}")
+
+    @RequestMapping(value = "/delete/{id}")
     public void delete(@PathVariable("id") Long id) {
-    	userDao.delete(id);
+        userDao.delete(id);
     }
-    
-    
+
+
 }

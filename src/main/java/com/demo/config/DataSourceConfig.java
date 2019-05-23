@@ -40,7 +40,7 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    //事务管理器
+//    //事务管理器
 //    @Bean
 //    public PlatformTransactionManager platformTransactionManager() throws Exception {
 //        return new DataSourceTransactionManager(dataSource());
