@@ -50,5 +50,4 @@ public class UserController extends BaseController {
         userDao.delete(id);
     }
 
-
 }
